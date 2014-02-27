@@ -1,5 +1,14 @@
+﻿@{
+    Page.Title = "Escriba el título aquí";
+    Layout = "~/Home.cshtml";
+}
 
+@{
+    var db = Database.Open("ConnString");
+    var query = "select * from Persona";
 
+  
+}
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
@@ -25,11 +34,13 @@
 </div>
     
         <img src="images/cthulu.png" alt="Photo of Cthulu" id="pic" />
-    
+
+  
         <div id="contact-info" class="vcard">
         
-            <!-- Microformats! -->
+                  
         <br>
+                
             <h1 class="fn"></h1>
         
             <p>
@@ -80,9 +91,9 @@
         </dl>
         
         <div class="clear"></div>
-    
+                
     </div>
-
+                       
 </body>
-
+     
 </html>

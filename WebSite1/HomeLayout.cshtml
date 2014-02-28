@@ -35,28 +35,29 @@
     
         <img src="images/cthulu.png" alt="Photo of Cthulu" id="pic" />
 
-  
-        <div id="contact-info" class="vcard">
+  @foreach(var row in db.Query(query)) 
+  {
+        @:<div id="contact-info" class="vcard">
         
                   
-        <br>
+        @:<br>
                 
-            <h1 class="fn"></h1>
+            <h1 class="fn">@row.Nombre  @row.Apellidos</h1>
         
             <p>
                 Telefono: <span class="tel"></span><br />
                 Email: <a class="email" href="mailto:greatoldone@lovecraft.com"></a>
             </p>
-        </div>
+        @:</div>
                 
-        <div id="objective">
+        @:<div id="objective">
 
             <p>
                
             </p>
-        </div>
+        @:</div>
         
-        <div class="clear"></div>
+        @:<div class="clear"></div>
         
         <dl>
             <dd class="clear"></dd>
@@ -76,24 +77,25 @@
             </dd>
             
             <dd class="clear"></dd>
-            
+          <strong>@row.Resumen</strong>  
             <dt>Experience</dt>
-            <dd>
+            <dd class="clear">
              
             </dd>
             
           
-            
-            <dt>References</dt>
-            <dd>Available on request</dd>
+            <dd class="clear">
+            <dt>Available on request</dt>
+
+            </dd>
             
             <dd class="clear"></dd>
         </dl>
         
-        <div class="clear"></div>
+        @:<div class="clear"></div>
                 
-    </div>
-                       
+    @:</div>
+  }            
 </body>
      
 </html>

@@ -1,9 +1,67 @@
 ﻿@{
-    Page.Title = "Escriba el título aquí";
-   // Layout = "~/mantenimiento.cshtml";
+    Page.Title = "Datos de Curriculum";
+    Layout = "~/mantenimiento.cshtml";
+   
+   
+   
 }
 
-
-<div>
+@{
     
-</div>
+    if (IsPost)
+    {
+        var name = Request["Name"];
+        var lastName = Request["lastName"];
+        var user = Request["user"];
+        var password = Request["password"];
+        var summary = Request["summary"];
+
+        var query = "update Persona  set Nombre= '" + name + "', Apellidos = '" + lastName + "', Usuario = '" + user + "',  Contrasena    = '" + password + "', Resumen = '" + summary + "'  where id_Persona = 1";
+
+        var db = Database.Open("ConnString");
+        db.Execute(query);
+
+
+    }    
+} 
+
+<html>
+
+    <head>
+   <title>Add Products</title>
+   <style type="text/css">
+      label {float:left; width: 8em; text-align: right;
+               margin-right: 0.5em;}
+      fieldset {padding: 1em; border: 1px solid; width: 35em;}
+      legend {padding: 2px 4px; border: 1px solid; font-weight:bold;}
+      .validation-summary-errors {font-weight:bold; color:red; font-size: 11pt;}
+   </style>
+</head>
+    <body> 
+<h1></h1> 
+   <fieldset>
+    <form action="" method="post">
+        <div>
+        <label>Nombre:</label>    
+        <input type="text" name="Name" value=" " /> 
+        </div>
+        <div>
+       <label> Apellidos:</label>
+        <input type="text" name="lastName" value=" " /><br />
+        </div>
+        <label> Usuario: </label>
+        <input type="text" name="user" value=" " /><br />
+        <label> Contrasena:</label>
+        <input type="text" name="password" value=" " /><br />
+        <label>Resumen:</label> 
+          <textarea name="summary"></textarea> <br />
+         <label>&nbsp;</label>
+        <input type="submit" name="Enviar" value="Enviar" />
+    </form>
+       </fieldset>
+</body>
+    
+
+
+
+</html>

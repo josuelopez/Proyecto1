@@ -1,0 +1,59 @@
+﻿@{
+    Page.Title = "Escriba el título aquí";
+    Layout = "~/recomendaciones.cshtml";
+}
+
+@{
+     if (IsPost)
+    {
+        var nombre = Request["nombre"];
+        var email = Request["email"];
+        var telefono = Request["telefono"];
+        var comentario = Request["comentario"];
+
+        var insertQuery = "INSERT INTO Recomendaciones(id_Persona, Nombre_completo, Email, Telefonos, Comentario) VALUES('" + 1 + "',' " + nombre + "', '" + email + "','" + telefono + "','" + comentario + "')";
+
+        var db = Database.Open("ConnString");
+        db.Execute(insertQuery);    
+ }
+ }
+ <html>
+
+    <head>
+   <title>Agregar Titulos</title>
+   <style type="text/css">
+      label {float:left; width: 8em; text-align: right;
+               margin-right: 0.5em;}
+      fieldset {padding: 1em; border: 1px solid; width: 35em;}
+      legend {padding: 2px 4px; border: 1px solid; font-weight:bold;}
+      .validation-summary-errors {font-weight:bold; color:red; font-size: 11pt;}
+   </style>
+</head>
+    <body> 
+<h1></h1> 
+   <fieldset>
+    <form action="" method="post">
+        <div>
+        <label>Nombre Completo:</label>    
+        <input type="text" name="nombre" value=" " /> 
+        </div>
+        <div>
+       <label> Email:</label>
+        <input type="text" name="email" value=" " /><br />
+        </div>
+        <label> Telefono: </label>
+        <input type="text" name="telefono" value=" " /><br />
+        <label>Comentario:</label> 
+          <textarea name="comentario"></textarea> <br />
+         <label>&nbsp;</label>
+        <input type="submit" name="Enviar" value="Enviar" />
+    </form>
+       </fieldset>
+</body>
+    
+
+
+
+</html>
+
+

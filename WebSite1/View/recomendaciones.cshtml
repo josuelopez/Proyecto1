@@ -1,0 +1,110 @@
+﻿@{
+    Page.Title = "Escriba el título aquí";
+    Layout = "~/Shared/_Layout.cshtml";
+}
+
+@{
+     if (IsPost)
+    {
+        var nombre = Request["nombre"];
+        var email = Request["email"];
+        var telefono = Request["telefono"];
+        var comentario = Request["comentario"];
+
+        var insertQuery = "INSERT INTO Recomendaciones(id_Persona, Nombre_completo, Email, Telefonos, Comentario) VALUES('" + 1 + "',' " + nombre + "', '" + email + "','" + telefono + "','" + comentario + "')";
+
+        var db = Database.Open("ConnString");
+        db.Execute(insertQuery);    
+ }
+ }
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+     <link type="text/css" rel="stylesheet" href="../Shared/Style.css" />
+
+
+     <title>Recomendaciones</title>
+
+   
+</head>
+
+<body>
+
+    <div id="page-wrap">
+<div id='cssmenu'>
+<ul>
+   <li><a href='../Default.cshtml'><span>Home</span></a></li>
+    <li class='last'><a href='comentario.cshtml'><span>Contacto</span></a></li>
+   <li class='active'><a href='recomendaciones.cshtml'><span>Recomendar</span></a></li>
+    <li><a href='recomendacionesHechas.cshtml'><span>Recomendaciones</span></a></li>
+   
+</ul>
+</div>
+    
+        <img src="../Shared/images/cthulu.png" alt="Photo of Cthulu" id="pic" />
+    
+ 
+   
+    <form action="" method="post">
+
+        <div id="contact-info" class="vcard">
+
+            <br>
+              <h1 class="fn">Recomentar</h1>
+
+            <dl>
+                
+                <dd class="clear"></dd>
+            
+                <dt>Nombre Completo</dt>
+                <dd>
+                 <input type="text" name="nombre" value=" " /> 
+                <p><strong></strong> <br />
+                   <strong></strong> </p>
+                </dd>
+                
+                <dd class="clear"></dd>
+            
+                <dt>Email</dt>
+                <dd>
+                 <input type="text" name="email" value=" " /><br /> 
+                <p><strong></strong> <br />
+                   <strong></strong> </p>
+                </dd>
+                
+                <dd class="clear"></dd>
+            
+                <dt>Telefono</dt>
+                <dd>
+                  <input type="text" name="telefono" value=" " /><br />
+                <p><strong></strong> <br />
+                   <strong></strong> </p>
+                </dd>
+
+                <dd class="clear"></dd>
+            
+                <dt>Recomendacion</dt>
+                <dd>
+                  <textarea name="comentario" cols="45" rows="4"></textarea> <br /> 
+                <p><strong></strong> <br />
+                   <strong></strong> </p>
+                </dd>
+
+            </dl>
+            
+        </div>
+        <input type="submit" name="Enviar" value="Enviar" />
+         </form>
+        
+        </div>
+   
+      
+</body>
+    
+
+
+
+</html>
+
+

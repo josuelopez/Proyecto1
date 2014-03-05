@@ -1,0 +1,74 @@
+﻿@{
+    Page.Title = "Escriba el título aquí";
+    Layout = "~/Shared/_Layout.cshtml";
+}
+
+
+@{
+    var db = Database.Open("connString");
+    var selectQueryString = "select * from Recomendaciones";
+
+}
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+     <link type="text/css" rel="stylesheet" href="../Shared/Style.css" />
+
+
+     <title>Recomendaciones</title>
+
+   
+</head>
+
+<body>
+
+    <div id="page-wrap">
+<div id='cssmenu'>
+<ul>
+   <li><a href='../Default.cshtml'><span>Home</span></a></li>
+    <li class='last'><a href='comentario.cshtml'><span>Contacto</span></a></li>
+   <li ><a href='recomendaciones.cshtml'><span>Recomendar</span></a></li>
+   <li class='active'><a href='recomendacionesHechas.cshtml'><span>Recomendaciones</span></a></li>
+   
+</ul>
+</div>
+    
+        <img src="../Shared/images/cthulu.png" alt="Photo of Cthulu" id="pic" />
+    
+ 
+   
+    <form action="" method="post">
+
+        <div id="contact-info" class="vcard">
+
+            <br>
+              <h1 class="fn">Recomendaciones</h1>
+
+            
+   <table> 
+<tr>
+<th>Nombre</th>
+<th>Email</th> 
+<th>Telefono</th> 
+<th>Comentario</th> 
+</tr>
+@foreach(var row in db.Query(selectQueryString))
+{
+<tr> 
+   
+<td>@row.Nombre_completo</td> 
+<td>@row.Email</td> 
+<td>@row.Telefonos</td> 
+<td align="right">@row.Comentario</td> 
+</tr> 
+}
+</table> 
+
+      
+</body>
+    
+
+
+
+</html>

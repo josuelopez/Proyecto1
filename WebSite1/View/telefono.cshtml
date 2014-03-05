@@ -1,0 +1,60 @@
+﻿@{
+    Page.Title = "Escriba el título aquí";
+    Layout = "~/Shared/_Layout.cshtml";
+}
+
+@{
+    if (IsPost)
+    {
+        var numero_Telefono = Request["telefono"];
+
+
+
+        var insertQuery = "INSERT INTO Telefonos(id_Persona, Numero_telefono) VALUES('" + 1 + "',' " + numero_Telefono + "')";
+
+        var db = Database.Open("ConnString");
+        db.Execute(insertQuery);
+    }   
+ }
+
+<html>
+
+    <head>
+  
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link type="text/css" rel="stylesheet" href="../Shared/Style.css" />
+
+         <title>Agregar Titulos</title>
+</head>
+    <body> 
+<h1></h1> 
+   <div id="page-wrap">
+        <div id='cssmenu'>
+<ul>
+   <li ><a href='Mantenimieto.cshtml'><span>Datos personales</span></a></li>
+    <li class='active'><a href='telefono.cshtml'><span>Telefonos</span></a></li>
+   <li ><a href='titulo.cshtml'><span>Titulos</span></a></li>
+   
+</ul>
+</div>
+    <form action="" method="post">
+        <div id="contact-info" class="vcard">
+         <br>
+            <h1 class="fn">Agregar Telefono</h1>
+
+        <dl>  
+            <dd class="clear"></dd>
+        <dt>Telefono</dt>
+            <dd>
+            <input type="text" name="telefono" value=" " /> 
+            <p><strong></strong> <br />
+            <strong></strong> </p>
+            </dd>
+        </dl> 
+        </div>
+         <input type="submit" name="Enviar" value="Enviar" />
+        </form>
+       </div>
+       
+</body>
+    </html>

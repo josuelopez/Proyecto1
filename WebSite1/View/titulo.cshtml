@@ -1,0 +1,86 @@
+﻿@{
+    Page.Title = "Escriba el título aquí";
+    Layout = "~/Shared/_Layout.cshtml";
+}
+
+@{
+    if (IsPost)
+    {
+        var titulo = Request["Titulo"];
+        var escuela = Request["Escuela"];
+        var ano_inicio = Request["ano_Inicio"];
+        var ano_fin = Request["ano_Fin"];
+
+        var insertQuery = "INSERT INTO Titulos(id_Persona,Titulo, Escuela, ano_Inicio, ano_Fin) VALUES('"+ 1 +"',' "+ titulo + "', '" + escuela + "','" + ano_inicio +"','"+ ano_fin +"')";
+
+        var db = Database.Open("ConnString");
+        db.Execute(insertQuery);
+    }
+  }
+
+<html>
+
+    <head>
+  
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link type="text/css" rel="stylesheet" href="../Shared/Style.css" />
+
+         <title>Agregar Titulos</title>
+</head>
+    <body> 
+<h1></h1> 
+   <div id="page-wrap">
+        <div id='cssmenu'>
+<ul>
+   <li ><a href='Mantenimieto.cshtml'><span>Datos personales</span></a></li>
+    <li ><a href='telefono.cshtml'><span>Telefonos</span></a></li>
+   <li class='active'><a href='titulo.cshtml'><span>Titulos</span></a></li>
+   
+</ul>
+</div>
+    <form action="" method="post">
+        <div id="contact-info" class="vcard">
+         <br>
+            <h1 class="fn">Titulos</h1>
+
+        <dl>  
+            <dd class="clear"></dd>
+        <dt>Titulo</dt>
+            <dd>
+            <input type="text" name="titulo" value=" " />  
+            <p><strong></strong> <br />
+            <strong></strong> </p>
+            </dd>
+
+             <dd class="clear"></dd>
+        <dt>Institucion</dt>
+            <dd>
+            <input type="text" name="escuela" value=" " /><br />  
+            <p><strong></strong> <br />
+            <strong></strong> </p>
+            </dd>
+
+            <dd class="clear"></dd>
+            <dt>Ano Inicio</dt>
+            <dd>
+             <input type="text" name="ano_inicio" value=" " /><br /> 
+            <p><strong></strong> <br />
+            <strong></strong> </p>
+            </dd>
+
+            <dd class="clear"></dd>
+            <dt>Ano Fin</dt>
+            <dd>
+             <input type="text" name="ano_fin" value=" " /><br /> 
+            <p><strong></strong> <br />
+            <strong></strong> </p>
+            </dd>
+
+        </dl> 
+        </div>
+         <input type="submit" name="Enviar" value="Enviar" />
+        </form>
+       </div>
+       
+</body>
+    </html>

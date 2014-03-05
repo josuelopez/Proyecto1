@@ -1,4 +1,7 @@
-﻿      * { margin: 0; padding: 0; }
+﻿      * { 
+          margin: 0;
+           padding: 0;
+      }
         body 
         { font: 16px Helvetica, Sans-Serif; line-height: 24px; background: url(images/noise.jpg); }
         .clear { clear: both; }
@@ -18,8 +21,8 @@
         dd.clear { float: none; margin: 0; height: 15px; }
 
         @import url(http://fonts.googleapis.com/css?family=Capriola);
-/* Let's import the lovely google font, please keep this line at the top of your stylesheet */
-/* Menu CSS */#cssmenu,
+
+#cssmenu,
 #cssmenu ul,
 #cssmenu ul li,
 #cssmenu ul li a {
@@ -42,12 +45,12 @@
 #cssmenu {
   zoom: 1;
   height: 69px;
-  background: url(images/bottom-bg.png) repeat-x center bottom;
+  background: url(../Shared/images/bottom-bg.png) repeat-x center bottom;
   border-radius: 2px;
   width: auto;
 }
 #cssmenu ul {
-  background: url(images/nav-bg.png) repeat-x 0px 4px;
+  background: url(../Shared/images/nav-bg.png) repeat-x 0px 4px;
   height: 69px;
 }
 #cssmenu ul li {
@@ -72,7 +75,7 @@
 }
 #cssmenu ul li a:hover,
 #cssmenu ul li.active a {
-  background: url(images/color.png) center bottom;
+  background: url(../Shared/images/color.png) center bottom;
   display: block;
   height: 37px;
   margin-top: 0px;
@@ -81,3 +84,4 @@
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.35);
   opacity: 1;
 }
+

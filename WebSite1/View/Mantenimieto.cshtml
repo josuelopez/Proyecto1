@@ -1,0 +1,119 @@
+﻿@{
+    Page.Title = "Datos de Curriculum";
+    Layout = "~/Shared/_Layout.cshtml";
+   
+   
+   
+}
+
+@{
+    
+    if (IsPost)
+    {
+        var name = Request["Name"];
+        var lastName = Request["lastName"];
+        var user = Request["user"];
+        var password = Request["password"];
+        var summary = Request["summary"];
+
+        var query = "update Persona  set Nombre= '" + name + "', Apellidos = '" + lastName + "', Usuario = '" + user + "',  Contrasena    = '" + password + "', Resumen = '" + summary + "'  where id_Persona = 1";
+
+        var db = Database.Open("ConnString");
+        db.Execute(query);
+
+
+    }    
+} 
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link type="text/css" rel="stylesheet" href="../Shared/Style.css" />
+
+   <title>Actualizar Datos</title>
+   
+</head>
+    <body> 
+<h1></h1> 
+   <div id="page-wrap">
+       <div id='cssmenu'>
+<ul>
+   <li class='active'><a href='Mantenimieto.cshtml'><span>Datos personales</span></a></li>
+    <li class='last'><a href='telefono.cshtml'><span>Telefonos</span></a></li>
+   <li ><a href='titulo.cshtml'><span>Titulos</span></a></li>
+   
+</ul>
+</div>
+
+    <form action="" method="post">
+        <div id="contact-info" class="vcard">
+
+            <br>
+
+            <h1 class="fn">Actualizar Datos</h1>
+            <dl>
+
+            <dd class="clear"></dd>
+
+            <dt>Nombre</dt>
+                <dd>
+                 <input type="text" name="Name" value=" " /> 
+                <p><strong></strong> <br />
+                   <strong></strong> </p>
+                </dd>
+        
+        
+       <dd class="clear"></dd>
+            
+                <dt>Apellidos</dt>
+                <dd>
+                 <input type="text" name="lastName" value=" " /><br /> 
+                <p><strong></strong> <br />
+                   <strong></strong> </p>
+                </dd>
+        
+        <dd class="clear"></dd>
+            
+                <dt>Usuario</dt>
+                <dd>
+                 <input type="text" name="user" value=" " /><br /> 
+                <p><strong></strong> <br />
+                   <strong></strong> </p>
+                </dd>
+
+
+         <dd class="clear"></dd>
+            
+                <dt>Password</dt>
+                <dd>
+                 <input type="text" name="password" value=" " /><br />
+                <p><strong></strong> <br />
+                   <strong></strong> </p>
+                </dd>
+
+
+        <dd class="clear"></dd>
+            
+                <dt>Resumen</dt>
+                <dd>
+                 <textarea name="summary"></textarea> <br />
+                <p><strong></strong> <br />
+                   <strong></strong> </p>
+                </dd>
+         
+        
+        </dl>
+            
+        </div>
+         <input type="submit" name="Enviar" value="Enviar"/> 
+          
+    </form>
+      
+        </div>
+</body>
+    
+
+
+
+</html>

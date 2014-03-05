@@ -1,6 +1,6 @@
 ﻿@{
     var customerName = Request["customerName"];
-    var customerEmail = "joslo16@gmail.com"; 
+    var customerEmail = "negrolose@gmail.com"; 
     var customerRequest = Request["customerRequest"];
     var errorMessage = "";
     var debuggingFlag = false;
@@ -8,9 +8,9 @@
         // Initialize WebMail helper
         WebMail.SmtpServer = "smtp.gmail.com";
         WebMail.SmtpPort = 25;
-        WebMail.UserName = "joslose16@gmail.com";
-        WebMail.Password = "slipknot1234";
-        WebMail.From = "joslose16@gmail.com";
+        WebMail.UserName = "negrolose@gmail.com";
+        WebMail.Password = "slipknot1q2w3e4r";
+        WebMail.From = "negrolose@gmail.com";
         WebMail.EnableSsl = true;
         WebMail.SmtpUseDefaultCredentials = false;
        
@@ -30,17 +30,14 @@
   <title>Request for Assistance</title>
 </head>
 <body>
-  <p>Sorry to hear that you are having trouble, <b>@customerName</b>.</p>
+  <p>Gracias por su interes por mi persona, <b>@customerName</b>.</p>
     @if(errorMessage == ""){
-      <p>An email message has been sent to our customer service
-         department regarding the following problem:</p>
-      <p><b>@customerRequest</b></p>
+      <p>El Correo fue enviado con exito, pronto le estare contestando.</p>
+      <p><b></b></p>
     }
     else{
-        <p><b>The email was <em>not</em> sent.</b></p>
-        <p>Please check that the code in the ProcessRequest page has 
-           correct settings for the SMTP server name, a user name, 
-           a password, and a "from" address.
+        <p><b>El Email <em>no</em> ha sido enviado.</b></p>
+        <p>Por favor intentelo en otra ocasion. 
         </p>
         if(debuggingFlag){
             <p>The following error was reported:</p>

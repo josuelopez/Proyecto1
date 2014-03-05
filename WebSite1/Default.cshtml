@@ -1,0 +1,130 @@
+﻿@{
+    Page.Title = "Escriba el título aquí";
+    Layout = "~/Shared/_Layout.cshtml";
+}
+
+@{
+    var db = Database.Open("ConnString");
+    var query = "select * from Persona";
+    var consulta = " select * from Titulos";
+    var telefono ="select * from Telefonos";
+    var email = "select * from Email";
+  
+}
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+     <link type="text/css" rel="stylesheet" href="Shared/Style.css"/>
+
+
+     <title>Mi Hoja de Vida</title>
+
+   
+</head>
+
+<body>
+
+    <div id="page-wrap">
+<div id='cssmenu'>
+<ul>
+   <li class='active'><a href='Default.cshtml'><span>Home</span></a></li>
+    <li class='last'><a href='View/comentario.cshtml'><span>Contacto</span></a></li>
+   <li><a href='View/recomendaciones.cshtml'><span>Recomendar</span></a></li>
+    <li><a href='View/recomendacionesHechas.cshtml'><span>Recomendaciones</span></a></li>
+   
+</ul>
+</div>
+    
+        <img src="images/cthulu.png" alt="Photo of Cthulu" id="pic" />
+
+  @foreach(var row in db.Query(query)) 
+  {
+        @:<div id="contact-info" class="vcard">
+        
+                  
+        @:<br>
+                
+            <h1 class="fn">@row.Nombre  @row.Apellidos</h1>
+        
+            <p>
+                
+                
+            </p>
+      @:</div>
+                
+        @:<div id="objective">
+
+            <p>
+               
+            </p>
+        @:</div>
+        
+        @:<div class="clear"></div>
+        
+        <dl>
+          
+            <dd class="clear"></dd>
+            
+            <dt>Titulos</dt>
+               @foreach(var row1 in db.Query(consulta))
+           {
+            <dd>
+                <h4 class="fn">Titulo: @row1.Titulo</h4>
+                <h4 class ="fn">Escuela: @row1.Escuela</h4>
+                <h4 class ="fn">Ano Inicio: @row1.ano_Inicio</h4>
+                <h4 class ="fn">Ano Fin: @row1.ano_Fin</h4>
+                <p><strong></strong> <br />
+                   <strong></strong> </p>
+            </dd>
+           }
+            <dd class="clear"></dd>
+
+            <dt>Telefonos: <span class="tel"></span><br/></dt>
+            <dd>
+                @foreach(var row2 in db.Query(telefono))
+                {
+                <h4 class="fn">@row2.Numero_telefono</h4>
+                <p><strong></strong> <br />
+                   <strong></strong> </p>
+                }
+            </dd>
+            
+            <dd class="clear"></dd>
+
+            <dt>Email: <a class="email" href="mailto:greatoldone@lovecraft.com"></a></dt>
+            <dd>
+                @foreach(var row3 in db.Query(email))
+                {
+                    <h4 class="fn">@row3.Email</h4>
+                <p><strong></strong> <br />
+                   <strong></strong> </p>
+                }
+            </dd>
+
+            <dd class="clear"></dd>
+            
+            
+            <dd>
+            
+            </dd>
+            
+            <dd class="clear"></dd>
+            <dd>
+             <h4>@row.Resumen</h4>  
+             </dd>
+            <dt>Resumen</dt>
+            <dd class="clear">
+             
+            </dd>
+            
+            <dd class="clear"></dd>
+        </dl>
+        
+        @:<div class="clear"></div>
+                
+    @:</div>
+  }            
+</body>
+     
+</html>
